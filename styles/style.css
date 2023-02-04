@@ -1,0 +1,372 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* End CSS Reset */
+
+html {
+    font-size: 62.5%;
+    /* ## Colors */
+
+    /* ### Primary */
+
+    /* - Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%) */
+    --error-red: hsl(0, 100%, 66%);
+
+    /* ### Neutral */
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
+    /* Js controlled variables */
+    --invalid-outline: 2px solid red;
+    --valid-outline: 1px solid var(--dark-grayish-violet);
+}
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    position: relative;
+}
+.main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.illustration-section {
+    background: url("/res/images/bg-main-desktop.png"),
+        linear-gradient(
+            to left top,
+            #6448fe,
+            #6939e2,
+            #6929c7,
+            #6619ad,
+            #600594
+        );
+    background-size: cover;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 3px;
+}
+.illustration-section * {
+    user-select: none;
+    pointer-events: none;
+}
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-inline-start: 15rem;
+}
+.payment-form label {
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+}
+.payment-form input {
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: transparent;
+    border: 1px solid var(--dark-grayish-violet);
+    min-width: 100%;
+}
+.form-submit-btn{
+    border-radius: 5px;
+}
+.exp-date-ccv-container {
+    display: flex;
+    gap: 1rem;
+    margin-block: 1rem;
+    align-items: flex-end;
+}
+
+.exp-date-input-container {
+    display: flex;
+    gap: 1rem;
+}
+.exp-date-input-container input {
+    min-width: 0;
+    max-width: 8rem;
+}
+
+.form-submit-container {
+    align-self: stretch;
+}
+.form-submit-container input {
+    min-width: 100%;
+    border: none;
+    background: none;
+    background-color: var(--very-dark-violet);
+    color: white;
+    cursor: pointer;
+    padding-block: 1.5rem;
+}
+
+.illustration-1-container,
+.illustration-2-container {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    bottom: 45%;
+    /* top: 33%; */
+    left: 25%;
+    border-radius: 50px;
+box-shadow: 2px 18px 42px -9px rgba(0, 0, 0, 0.174);
+
+}
+
+.illustration-2-container {
+    bottom: 10%;
+    /* top:62%; */
+    left: 33%;
+}
+.illustration-sub-1-container {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    filter: blur(0.6px);
+}
+.illustration-1-text {
+    color: white;
+    position: absolute;
+    top: 14rem;
+    text-align: left;
+    min-width: 100%;
+    padding-inline: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.illustration-1-text-ccd {
+    font-size: 2.8rem;
+}
+.illustration-1-text-gap {
+    font-size: 1.6rem;
+}
+.illustration-1-text-gap {
+    display: flex;
+    justify-content: space-between;
+}
+.illustration-sub-2-container {
+    position: absolute;
+    top: 11rem;
+    right: 5rem;
+    color: white;
+    font-size: 1.4rem;
+}
+input:valid {
+    border: none;
+    outline: var(--valid-outline);
+}
+input:invalid {
+    border: none;
+    outline: var(--invalid-outline);
+}
+.form-submit-btn {
+    transition: color 0.1s, outline 0.1s, background 0.1s;
+}
+.form-submit-btn:hover,
+.form-submit-btn:focus-visible {
+    color: var(--very-dark-violet);
+    outline: 2px solid var(--very-dark-violet);
+    background: none;
+}
+
+.form-complete-section,
+.form-complete-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+
+}
+.form-complete-section{
+    display: none;
+}
+.form-complete-container {
+    margin-inline-start: 15rem;
+}
+.form-complete-text-container {
+    text-align: center;
+}
+.form-complete-header {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-block-end: 1rem;
+}
+.form-complete-summary {
+    color: var(--dark-grayish-violet);
+}
+.form-complete-btn {
+    background: none;
+    border: none;
+    outline: none;
+    background-color: var(--very-dark-violet);
+    color: white;
+    border-radius: 5px;
+    min-width: 145%;
+    padding-block: 1.3rem;
+    cursor: pointer;
+    transition: color 0.1s,outline 0.1s,background 0.1s;
+}
+.form-complete-btn:hover,.form-complete-btn:focus-visible {
+    background: none;
+    color: var(--very-dark-violet);
+    outline: 2px solid var(--very-dark-violet);
+}
+@media (max-width: 78em) {
+    .illustration-1-container,
+    .illustration-2-container {
+        transform: scale(0.75) translate(-50%, -50%);
+    }
+    .illustration-1-container {
+        bottom: 45%;
+        left: 15%;
+    }
+    .illustration-2-container {
+        bottom: 20%;
+        left: 23%;
+    }
+}
+
+@media (max-width: 63em) {
+    .main {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 2fr;
+    }
+    .payment-form,.form-complete-container {
+        margin-inline: 1rem;
+    }
+    .illustration-1-container {
+        bottom: 46.7%;
+        left: 37.1%;
+        width: 44.7rem;
+        z-index: 2;
+    }
+    .illustration-2-container {
+        bottom: 59.1%;
+        left: 53.6%;
+        width: 44.7rem;
+    }
+}
+@media (max-width: 35em) {
+    .illustration-1-container,
+    .illustration-2-container {
+        transform: scale(0.6) translate(-50%, -50%);
+    }
+    .illustration-1-container {
+        left: 28%;
+        bottom: 49%;
+    }
+    .illustration-2-container {
+        left: 40%;
+    }
+    .payment-form,.form-complete-container {
+        max-width: 80%;
+        margin: 0;
+    }
+    .form-complete-container{
+        font-size: 1.6rem;
+    }
+    .payment-form label {
+        font-size: 1.2rem;
+    }
+    .cvc-container > * {
+        width: 50%;
+    }
+}
+@media (max-width: 29em) {
+    .illustration-1-container,
+    .illustration-2-container {
+        transform: scale(0.5) translate(-50%, -50%);
+    }
+    .illustration-2-container {
+        left: 28.8%;
+    }
+    .illustration-1-container {
+        left: 10.1%;
+        bottom: 47.1%;
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="res/images/favicon-32x32.png">
+  <script defer src="script.js"></script>
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+
+<body>
+  <main class="main">
+    <section class="illustration-section">
+      <div class="illustration-1-container"><img class="illustration-1" src="res/images/bg-card-front.png" alt="res">
+        <div class="illustration-sub-1-container"><img class="illustration-3" src="res/images/card-logo.svg" alt="res">
+        </div>
+        <div class="illustration-1-text">
+          <p class="illustration-1-text-ccd">0000 0000 0000 0000</p>
+          <div class="illustration-1-text-gap">
+            <span class="illustration-1-text-name">Jane Appleseed</span>
+            <span class="illustration-1-text-date">00/00</span>
+          </div>
+        </div>
+      </div>
+      <div class="illustration-2-container"><img class="illustration-2" src="res/images/bg-card-back.png" alt="res">
+        <div class="illustration-sub-2-container"><span class="illustration-sub-2-cvc">000</span></div>
+      </div>
+    </section>
+    <section class="payment-section">
+      <form action="#" class="payment-form">
+        <div class="card-holder-name-container">
+          <label class="card-holder-name-label" for="name">Cardholder Name</label>
+          <input class="card-holder-name-input" type="" name="name" id="name" required
+            placeholder="e.g. Jane Appleseed">
+        </div>
+        <div class="card-number-container">
+          <label class="card-number-label" for="ccn-input">Card Number</label>
+          <input class="card-number-input" id="ccn-input" type="tel" inputmode="numeric" pattern="[0-9 ]{19,19}"
+            autocomplete="cc-number" minlength="19" maxlength="19" placeholder="e.g. 1234 5678 9123 0000" required>
+        </div>
+        <div class="exp-date-ccv-container">
+          <div class="exp-date-container">
+            <label class="exp-date-label" for="month-input year-input">Exp. date (MM/YY)</label>
+            <div class="exp-date-input-container">
+              <input class="exp-date-input" id="month-input" type="tel" inputmode="numeric" pattern="\d*"
+                autocomplete="cc-number" maxlength="2" placeholder="MM" required>
+              <input class="exp-date-input" id="year-input" type="tel" inputmode="numeric" pattern="\d*"
+                autocomplete="cc-number" maxlength="2" placeholder="YY" required>
+            </div>
+          </div>
+          <div class="cvc-container">
+            <label class="cvc-label" for="cvc-input">CVC</label>
+            <input class="cvc-input" id="cvc-input" type="tel" inputmode="numeric" pattern="\d*"
+              autocomplete="cc-number" maxlength="3" placeholder="e.g. 123" required>
+          </div>
+        </div>
+        <div class="form-submit-container">
+          <input class="form-submit-btn" type="submit" value="Confirm">
+        </div>
+      </form>
+    </section>
+    <section class="form-complete-section">
+      <div class="form-complete-container">
+        <div class="form-complete-img-container"><img src="res/images/icon-complete.svg" alt=""
+            class="form-complete-img">
+        </div>
+        <div class="form-complete-text-container">
+          <h1 class="form-complete-header">Thank you!</h1>
+          <p class="form-complete-summary">We've added your card details</p>
+        </div>
+        <input class="form-complete-btn" type="submit" value="Continue">
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>
